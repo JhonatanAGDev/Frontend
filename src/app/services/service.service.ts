@@ -118,5 +118,11 @@ export class ServiceService {
     return this.http.get(this.url + '/categorias');
   }
 
+  //SubCategoria
+
+  getSubCategoria(){
+    return this.http.get(this.url + '/subcategorias');
+  }
+
   //Termina Productos Jhonatan
 }

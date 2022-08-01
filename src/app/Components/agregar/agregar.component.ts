@@ -3,6 +3,7 @@ import { ServiceService } from 'src/app/services/service.service';
 import { Producto } from 'src/app/interfaces/Producto';
 import { Router } from '@angular/router';
 import { categoria } from '../../interfaces/categoria';
+import { subcategoria } from 'src/app/interfaces/subcategoria';
 
 
 @Component({
@@ -24,11 +25,14 @@ export class AgregarComponent implements OnInit {
 
   listarCategoria: categoria [] | undefined;
 
+  listarSubCategoria: subcategoria [] | undefined;
+
 
   constructor(private ServiceService: ServiceService, private router:Router) { }
 
   ngOnInit(): void {
     this.consultaCategorias();
+    this.consultaSubcategoria();
   }
 
   agregarProducto() {
@@ -50,11 +54,11 @@ export class AgregarComponent implements OnInit {
     }
 
     consultaSubcategoria() {
-      this.ServiceService.getCategoria().subscribe(
+      this.ServiceService.getSubCategoria().subscribe(
         (res) => {
           console.log(res);
-          this.listarCategoria = <any>res;
-          console.log(this.listarCategoria)
+          this.listarSubCategoria = <any>res;
+          console.log(this.listarSubCategoria)
         },
         (err) => console.log(err)
       );
